@@ -1,3 +1,4 @@
+/** @type {HTMLCanvasElement} **/
 const canvas = document.getElementById("canvas1");
 const ctx = canvas.getContext("2d");
 
@@ -9,7 +10,15 @@ ctx.shadowOffsetX = 0;
 ctx.shadowOffsetY = 10;
 ctx.shadowBlur = 10;
 ctx.shadowColor = "rgb(0, 0, 0, 0.1)";
-ctx.globalCompositeOperation = "destination-over";
+/* type GlobalCompositeOperation = "color" | "color-burn" | "color-dodge" | "copy" | "darken" |
+   "destination-atop" | "destination-in" | "destination-out" | "destination-over" |
+   "difference" | "exclusion" | "hard-light" | "hue" | "lighten" | "lighter" | "luminosity" |
+   "multiply" | "overlay" | "saturation" | "screen" | "soft-light" | "source-atop" |
+   "source-in" | "source-out" | "source-over" | "xor";
+*/
+
+// TODO: performance issue when using "destination-over" width shadow
+// ctx.globalCompositeOperation = "destination-over";
 
 const rand = (min, max) => Math.random() * (max - min) + min;
 
